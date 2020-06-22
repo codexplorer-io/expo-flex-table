@@ -22,6 +22,7 @@ const TableCell = styled.View`
     padding-bottom: 15px;
     border-right-width: ${({ isLastCell }) => isLastCell ? 0 : 1}px;
     border-color: ${({ tableStyle: { borderColor } }) => borderColor};
+    justify-content: center;
 `;
 
 const TableCellTitle = styled(Caption)`
