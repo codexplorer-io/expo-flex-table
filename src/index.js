@@ -1,5 +1,7 @@
-import React from 'react';
-import { Caption } from 'react-native-paper';
+import React, { useState } from 'react';
+import {
+    Caption, IconButton, useTheme, Menu
+} from 'react-native-paper';
 import styled from 'styled-components/native';
 
 const TableRoot = styled.View`
@@ -10,17 +12,17 @@ const TableRoot = styled.View`
 const TableRow = styled.View`
     display: flex;
     flex-direction: row;
-    border-top-width: 1px;
     border-bottom-width: ${({ isLastRow }) => isLastRow ? 1 : 0}px;
     border-color: ${({ tableStyle: { borderColor } }) => borderColor};
 `;
 
 const TableCell = styled.View`
-    flex: 1;
+    ${({ isActionCell }) => isActionCell ? '' : 'flex: 1'}; 
     padding: 5px;
     padding-top: 15px;
     padding-bottom: 15px;
     border-right-width: ${({ isLastCell }) => isLastCell ? 0 : 1}px;
+    border-top-width: ${({ isHeaderCell, isActionCell }) => isHeaderCell && isActionCell ? 0 : 1}px;
     border-color: ${({ tableStyle: { borderColor } }) => borderColor};
     justify-content: center;
 `;
@@ -40,7 +42,80 @@ const defaultTableStyle = {
     borderColor: 'black'
 };
 
-export const FlexTable = ({ columns, rows, tableStyle }) => {
+const ActionsCell = ({ row, actions, tableStyle }) => {
+    const theme = useTheme();
+    const [isActionsMenuVisible, setIsActionsMenuVisible] = useState(false);
+
+    if (!actions) {
+        return null;
+    }
+
+    const renderCell = content => (
+        <TableCell
+            isLastCell
+            isActionCell
+            tableStyle={tableStyle}
+        >
+            {content}
+        </TableCell>
+    );
+
+    if (actions.length === 1) {
+        const { onPress, icon } = actions[0];
+        const handleOnPress = () => onPress(row);
+        return renderCell(
+            <IconButton
+                onPress={handleOnPress}
+                icon={icon}
+                color={theme.colors.primary}
+            />
+        );
+    }
+
+    const showActionsMenu = () => {
+        setIsActionsMenuVisible(true);
+    };
+
+    const hideActionsMenu = () => {
+        setIsActionsMenuVisible(false);
+    };
+
+    const menu = (
+        <Menu
+            visible={isActionsMenuVisible}
+            onDismiss={hideActionsMenu}
+            anchor={(
+                <IconButton
+                    color={theme.colors.primary}
+                    icon='menu-down-outline'
+                    onPress={showActionsMenu}
+                />
+            )}
+        >
+            {
+                actions?.map(({ key, onPress, title }) => {
+                    const handleOnPress = () => {
+                        hideActionsMenu();
+                        onPress(row);
+                    };
+                    return (
+                        <Menu.Item
+                            key={key}
+                            onPress={handleOnPress}
+                            title={title}
+                        />
+                    );
+                })
+            }
+        </Menu>
+    );
+
+    return renderCell(menu);
+};
+
+export const FlexTable = ({
+    actions, columns, rows, tableStyle
+}) => {
     const style = {
         ...defaultTableStyle,
         ...tableStyle
@@ -55,38 +130,56 @@ export const FlexTable = ({ columns, rows, tableStyle }) => {
                     {columns.map(({ key, value }, index) => (
                         <TableCell
                             key={key}
-                            isLastCell={index === columns.length - 1}
+                            isLastCell={index === columns.length - 1 && !actions}
                             tableStyle={style}
                         >
                             <TableCellValue>{value}</TableCellValue>
                         </TableCell>
                     ))}
-                </TableRow>
-            )}
-            {rows.map(({ key, cells }, index) => (
-                <TableRow
-                    key={key}
-                    isLastRow={index === rows.length - 1}
-                    tableStyle={style}
-                >
-                    {cells.map(({ key, title, value }, index) => (
+                    {!!actions && (
                         <TableCell
-                            key={key}
-                            isLastCell={index === cells.length - 1}
+                            isLastCell
+                            isActionCell
+                            isHeaderCell
                             tableStyle={style}
                         >
-                            {!!title && (
-                                <TableCellTitle>{title}</TableCellTitle>
-                            )}
-                            <TableCellValue
-                                hasTopMargin={!!title}
-                            >
-                                {value}
-                            </TableCellValue>
+                            <IconButton />
                         </TableCell>
-                    ))}
+                    )}
                 </TableRow>
-            ))}
+            )}
+            {rows.map((row, index) => {
+                const { key, cells } = row;
+                return (
+                    <TableRow
+                        key={key}
+                        isLastRow={index === rows.length - 1}
+                        tableStyle={style}
+                    >
+                        {cells.map(({ key, title, value }, index) => (
+                            <TableCell
+                                key={key}
+                                isLastCell={index === cells.length - 1 && !actions}
+                                tableStyle={style}
+                            >
+                                {!!title && (
+                                    <TableCellTitle>{title}</TableCellTitle>
+                                )}
+                                <TableCellValue
+                                    hasTopMargin={!!title}
+                                >
+                                    {value}
+                                </TableCellValue>
+                            </TableCell>
+                        ))}
+                        <ActionsCell
+                            row={row}
+                            actions={actions}
+                            tableStyle={style}
+                        />
+                    </TableRow>
+                );
+            })}
         </TableRoot>
     );
 };
