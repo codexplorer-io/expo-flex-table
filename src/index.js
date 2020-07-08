@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import {
-    Caption, IconButton, useTheme, Menu
+    Caption,
+    IconButton,
+    useTheme,
+    Menu
 } from 'react-native-paper';
 import styled from 'styled-components/native';
 
@@ -61,12 +64,12 @@ const ActionsCell = ({ row, actions, tableStyle }) => {
     );
 
     if (actions.length === 1) {
-        const { onPress, icon } = actions[0];
+        const { onPress, getIcon } = actions[0];
         const handleOnPress = () => onPress(row);
         return renderCell(
             <IconButton
                 onPress={handleOnPress}
-                icon={icon}
+                icon={getIcon(row)}
                 color={theme.colors.primary}
             />
         );
@@ -93,7 +96,7 @@ const ActionsCell = ({ row, actions, tableStyle }) => {
             )}
         >
             {
-                actions?.map(({ key, onPress, title }) => {
+                actions?.map(({ key, onPress, getTitle }) => {
                     const handleOnPress = () => {
                         hideActionsMenu();
                         onPress(row);
@@ -102,7 +105,7 @@ const ActionsCell = ({ row, actions, tableStyle }) => {
                         <Menu.Item
                             key={key}
                             onPress={handleOnPress}
-                            title={title}
+                            title={getTitle(row)}
                         />
                     );
                 })
