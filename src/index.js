@@ -159,20 +159,26 @@ export const FlexTable = ({
                         isLastRow={index === rows.length - 1}
                         tableStyle={style}
                     >
-                        {cells.map(({ key, title, value }, index) => (
+                        {cells.map(({
+                            key, title, value, renderCell
+                        }, index) => (
                             <TableCell
                                 key={key}
                                 isLastCell={index === cells.length - 1 && !actions}
                                 tableStyle={style}
                             >
-                                {!!title && (
-                                    <TableCellTitle>{title}</TableCellTitle>
+                                {renderCell ? renderCell(row) : (
+                                    <>
+                                        {!!title && (
+                                            <TableCellTitle>{title}</TableCellTitle>
+                                        )}
+                                        <TableCellValue
+                                            hasTopMargin={!!title}
+                                        >
+                                            {value}
+                                        </TableCellValue>
+                                    </>
                                 )}
-                                <TableCellValue
-                                    hasTopMargin={!!title}
-                                >
-                                    {value}
-                                </TableCellValue>
                             </TableCell>
                         ))}
                         <ActionsCell
