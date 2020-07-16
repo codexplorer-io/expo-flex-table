@@ -5,6 +5,7 @@
   "peerDependencies": {
     "react": "*",
     "react-native-paper": "*",
-    "styled-components": "*"
+    "styled-components": "*",
+    "lodash": "*"
   }
 }

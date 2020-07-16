@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import map from 'lodash/map';
 import {
     Caption,
     IconButton,
@@ -96,19 +97,22 @@ const ActionsCell = ({ row, actions, tableStyle }) => {
             )}
         >
             {
-                actions?.map(({ key, onPress, getTitle }) => {
-                    const handleOnPress = () => {
-                        hideActionsMenu();
-                        onPress(row);
-                    };
-                    return (
-                        <Menu.Item
-                            key={key}
-                            onPress={handleOnPress}
-                            title={getTitle(row)}
-                        />
-                    );
-                })
+                map(
+                    actions,
+                    ({ key, onPress, getTitle }) => {
+                        const handleOnPress = () => {
+                            hideActionsMenu();
+                            onPress(row);
+                        };
+                        return (
+                            <Menu.Item
+                                key={key}
+                                onPress={handleOnPress}
+                                title={getTitle(row)}
+                            />
+                        );
+                    }
+                )
             }
         </Menu>
     );
@@ -130,15 +134,18 @@ export const FlexTable = ({
                 <TableRow
                     tableStyle={style}
                 >
-                    {columns.map(({ key, value }, index) => (
-                        <TableCell
-                            key={key}
-                            isLastCell={index === columns.length - 1 && !actions}
-                            tableStyle={style}
-                        >
-                            <TableCellValue>{value}</TableCellValue>
-                        </TableCell>
-                    ))}
+                    {map(
+                        columns,
+                        ({ key, value }, index) => (
+                            <TableCell
+                                key={key}
+                                isLastCell={index === columns.length - 1 && !actions}
+                                tableStyle={style}
+                            >
+                                <TableCellValue>{value}</TableCellValue>
+                            </TableCell>
+                        )
+                    )}
                     {!!actions && (
                         <TableCell
                             isLastCell
@@ -151,44 +158,53 @@ export const FlexTable = ({
                     )}
                 </TableRow>
             )}
-            {rows.map((row, index) => {
-                const { key, cells } = row;
-                return (
-                    <TableRow
-                        key={key}
-                        isLastRow={index === rows.length - 1}
-                        tableStyle={style}
-                    >
-                        {cells.map(({
-                            key, title, value, renderCell
-                        }, index) => (
-                            <TableCell
-                                key={key}
-                                isLastCell={index === cells.length - 1 && !actions}
-                                tableStyle={style}
-                            >
-                                {renderCell ? renderCell(row) : (
-                                    <>
-                                        {!!title && (
-                                            <TableCellTitle>{title}</TableCellTitle>
-                                        )}
-                                        <TableCellValue
-                                            hasTopMargin={!!title}
-                                        >
-                                            {value}
-                                        </TableCellValue>
-                                    </>
-                                )}
-                            </TableCell>
-                        ))}
-                        <ActionsCell
-                            row={row}
-                            actions={actions}
+            {map(
+                rows,
+                (row, index) => {
+                    const { key, cells } = row;
+                    return (
+                        <TableRow
+                            key={key}
+                            isLastRow={index === rows.length - 1}
                             tableStyle={style}
-                        />
-                    </TableRow>
-                );
-            })}
+                        >
+                            {map(
+                                cells,
+                                ({
+                                    key,
+                                    title,
+                                    value,
+                                    renderCell
+                                }, index) => (
+                                    <TableCell
+                                        key={key}
+                                        isLastCell={index === cells.length - 1 && !actions}
+                                        tableStyle={style}
+                                    >
+                                        {renderCell ? renderCell(row) : (
+                                            <>
+                                                {!!title && (
+                                                    <TableCellTitle>{title}</TableCellTitle>
+                                                )}
+                                                <TableCellValue
+                                                    hasTopMargin={!!title}
+                                                >
+                                                    {value}
+                                                </TableCellValue>
+                                            </>
+                                        )}
+                                    </TableCell>
+                                )
+                            )}
+                            <ActionsCell
+                                row={row}
+                                actions={actions}
+                                tableStyle={style}
+                            />
+                        </TableRow>
+                    );
+                }
+            )}
         </TableRoot>
     );
 };
