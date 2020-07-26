@@ -16,8 +16,6 @@ const TableRoot = styled.View`
 const TableRow = styled.View`
     display: flex;
     flex-direction: row;
-    border-bottom-width: ${({ isLastRow }) => isLastRow ? 1 : 0}px;
-    border-color: ${({ tableStyle: { borderColor } }) => borderColor};
 `;
 
 const TableCell = styled.View`
@@ -26,7 +24,8 @@ const TableCell = styled.View`
     padding-top: 15px;
     padding-bottom: 15px;
     border-right-width: ${({ isLastCell }) => isLastCell ? 0 : 1}px;
-    border-top-width: ${({ isHeaderCell, isActionCell }) => isHeaderCell && isActionCell ? 0 : 1}px;
+    border-top-width: ${({ isHeaderCell, isActionCell }) => (!isHeaderCell || isActionCell) ? 0 : 1}px;
+    border-bottom-width: ${({ shouldDisplay }) => shouldDisplay ? 1 : 0}px;
     border-color: ${({ tableStyle: { borderColor } }) => borderColor};
     justify-content: center;
 `;
@@ -46,23 +45,38 @@ const defaultTableStyle = {
     borderColor: 'black'
 };
 
-const ActionsCell = ({ row, actions, tableStyle }) => {
+const ActionsCell = ({
+    row,
+    getRowActions,
+    isLastRow,
+    tableStyle
+}) => {
     const theme = useTheme();
     const [isActionsMenuVisible, setIsActionsMenuVisible] = useState(false);
 
-    if (!actions) {
+    if (!getRowActions) {
         return null;
     }
 
+    const { shouldDisplay = true, actions } = getRowActions(row);
+
     const renderCell = content => (
         <TableCell
+            shouldDisplay={shouldDisplay}
             isLastCell
+            isLastRow={isLastRow}
             isActionCell
             tableStyle={tableStyle}
         >
             {content}
         </TableCell>
     );
+
+    if (!shouldDisplay) {
+        return renderCell(
+            <IconButton />
+        );
+    }
 
     if (actions.length === 1) {
         const { onPress, getIcon } = actions[0];
@@ -121,7 +135,10 @@ const ActionsCell = ({ row, actions, tableStyle }) => {
 };
 
 export const FlexTable = ({
-    actions, columns, rows, tableStyle
+    columns,
+    rows,
+    getRowActions,
+    tableStyle
 }) => {
     const style = {
         ...defaultTableStyle,
@@ -139,15 +156,18 @@ export const FlexTable = ({
                         ({ key, value }, index) => (
                             <TableCell
                                 key={key}
-                                isLastCell={index === columns.length - 1 && !actions}
+                                shouldDisplay
+                                isHeaderCell
+                                isLastCell={index === columns.length - 1 && !getRowActions}
                                 tableStyle={style}
                             >
                                 <TableCellValue>{value}</TableCellValue>
                             </TableCell>
                         )
                     )}
-                    {!!actions && (
+                    {!!getRowActions && (
                         <TableCell
+                            shouldDisplay
                             isLastCell
                             isActionCell
                             isHeaderCell
@@ -165,40 +185,51 @@ export const FlexTable = ({
                     return (
                         <TableRow
                             key={key}
-                            isLastRow={index === rows.length - 1}
                             tableStyle={style}
                         >
                             {map(
                                 cells,
                                 ({
                                     key,
+                                    shouldDisplay = true,
                                     title,
                                     value,
                                     renderCell
-                                }, index) => (
-                                    <TableCell
-                                        key={key}
-                                        isLastCell={index === cells.length - 1 && !actions}
-                                        tableStyle={style}
-                                    >
-                                        {renderCell ? renderCell(row) : (
-                                            <>
-                                                {!!title && (
-                                                    <TableCellTitle>{title}</TableCellTitle>
-                                                )}
-                                                <TableCellValue
-                                                    hasTopMargin={!!title}
-                                                >
-                                                    {value}
-                                                </TableCellValue>
-                                            </>
-                                        )}
-                                    </TableCell>
-                                )
+                                }, index) => {
+                                    const cellContent = !shouldDisplay ?
+                                        null :
+                                        renderCell ?
+                                            renderCell(row) : (
+                                                <>
+                                                    {!!title && (
+                                                        <TableCellTitle>{title}</TableCellTitle>
+                                                    )}
+                                                    <TableCellValue
+                                                        hasTopMargin={!!title}
+                                                    >
+                                                        {value}
+                                                    </TableCellValue>
+                                                </>
+                                            );
+                                    return (
+                                        <TableCell
+                                            key={key}
+                                            shouldDisplay={shouldDisplay}
+                                            isLastCell={
+                                                index === cells.length - 1 && !getRowActions
+                                            }
+                                            isLastRow={index === rows.length - 1}
+                                            tableStyle={style}
+                                        >
+                                            {cellContent}
+                                        </TableCell>
+                                    );
+                                }
                             )}
                             <ActionsCell
                                 row={row}
-                                actions={actions}
+                                isLastRow={index === rows.length - 1}
+                                getRowActions={getRowActions}
                                 tableStyle={style}
                             />
                         </TableRow>
