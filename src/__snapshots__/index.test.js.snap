@@ -1,0 +1,660 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FlexTable With actions should render as expected 1`] = `
+<Styled(View)>
+  <Styled(View)
+    tableStyle={
+      Object {
+        "borderColor": "black",
+      }
+    }
+  >
+    <Styled(View)
+      isHeaderCell={true}
+      isLastCell={false}
+      key="col1"
+      shouldDisplay={true}
+      tableStyle={
+        Object {
+          "borderColor": "black",
+        }
+      }
+    >
+      <Styled(Text)>
+        Column 1
+      </Styled(Text)>
+    </Styled(View)>
+    <Styled(View)
+      isHeaderCell={true}
+      isLastCell={false}
+      key="col2"
+      shouldDisplay={true}
+      tableStyle={
+        Object {
+          "borderColor": "black",
+        }
+      }
+    >
+      <Styled(Text)>
+        Column 2
+      </Styled(Text)>
+    </Styled(View)>
+    <Styled(View)
+      isActionCell={true}
+      isHeaderCell={true}
+      isLastCell={true}
+      shouldDisplay={true}
+      tableStyle={
+        Object {
+          "borderColor": "black",
+        }
+      }
+    >
+      <withTheme(IconButton) />
+    </Styled(View)>
+  </Styled(View)>
+  <Styled(View)
+    key="row1"
+    tableStyle={
+      Object {
+        "borderColor": "black",
+      }
+    }
+  >
+    <Styled(View)
+      isLastCell={false}
+      isLastRow={false}
+      key="row1_cell1"
+      shouldDisplay={true}
+      tableStyle={
+        Object {
+          "borderColor": "black",
+        }
+      }
+    >
+      <Styled(Text)
+        hasTopMargin={false}
+      >
+        Row 1 Cell 1
+      </Styled(Text)>
+    </Styled(View)>
+    <Styled(View)
+      isLastCell={false}
+      isLastRow={false}
+      key="row1_cell2"
+      shouldDisplay={true}
+      tableStyle={
+        Object {
+          "borderColor": "black",
+        }
+      }
+    >
+      <Styled(Text)
+        hasTopMargin={false}
+      >
+        Row 1 Cell 2
+      </Styled(Text)>
+    </Styled(View)>
+    <ActionsCell
+      getRowActions={[Function]}
+      isLastRow={false}
+      row={
+        Object {
+          "cells": Array [
+            Object {
+              "key": "row1_cell1",
+              "value": "Row 1 Cell 1",
+            },
+            Object {
+              "key": "row1_cell2",
+              "value": "Row 1 Cell 2",
+            },
+          ],
+          "key": "row1",
+        }
+      }
+      tableStyle={
+        Object {
+          "borderColor": "black",
+        }
+      }
+    />
+  </Styled(View)>
+  <Styled(View)
+    key="row2"
+    tableStyle={
+      Object {
+        "borderColor": "black",
+      }
+    }
+  >
+    <Styled(View)
+      isLastCell={false}
+      isLastRow={false}
+      key="row2_cell1"
+      shouldDisplay={true}
+      tableStyle={
+        Object {
+          "borderColor": "black",
+        }
+      }
+    >
+      <Styled(Text)
+        hasTopMargin={false}
+      >
+        Row 2 Cell 1
+      </Styled(Text)>
+    </Styled(View)>
+    <Styled(View)
+      isLastCell={false}
+      isLastRow={false}
+      key="row2_cell2"
+      shouldDisplay={true}
+      tableStyle={
+        Object {
+          "borderColor": "black",
+        }
+      }
+    >
+      <Styled(Text)
+        hasTopMargin={false}
+      >
+        Row 2 Cell 2
+      </Styled(Text)>
+    </Styled(View)>
+    <ActionsCell
+      getRowActions={[Function]}
+      isLastRow={false}
+      row={
+        Object {
+          "cells": Array [
+            Object {
+              "key": "row2_cell1",
+              "value": "Row 2 Cell 1",
+            },
+            Object {
+              "key": "row2_cell2",
+              "value": "Row 2 Cell 2",
+            },
+          ],
+          "key": "row2",
+        }
+      }
+      tableStyle={
+        Object {
+          "borderColor": "black",
+        }
+      }
+    />
+  </Styled(View)>
+  <Styled(View)
+    key="row3"
+    tableStyle={
+      Object {
+        "borderColor": "black",
+      }
+    }
+  >
+    <Styled(View)
+      isLastCell={false}
+      isLastRow={false}
+      key="row3_cell1"
+      shouldDisplay={true}
+      tableStyle={
+        Object {
+          "borderColor": "black",
+        }
+      }
+    >
+      <Styled(Text)
+        hasTopMargin={false}
+      >
+        Row 3 Cell 1
+      </Styled(Text)>
+    </Styled(View)>
+    <Styled(View)
+      isLastCell={false}
+      isLastRow={false}
+      key="row3_cell2"
+      shouldDisplay={true}
+      tableStyle={
+        Object {
+          "borderColor": "black",
+        }
+      }
+    >
+      <Styled(Text)
+        hasTopMargin={false}
+      >
+        Row 3 Cell 2
+      </Styled(Text)>
+    </Styled(View)>
+    <ActionsCell
+      getRowActions={[Function]}
+      isLastRow={false}
+      row={
+        Object {
+          "cells": Array [
+            Object {
+              "key": "row3_cell1",
+              "value": "Row 3 Cell 1",
+            },
+            Object {
+              "key": "row3_cell2",
+              "value": "Row 3 Cell 2",
+            },
+          ],
+          "key": "row3",
+        }
+      }
+      tableStyle={
+        Object {
+          "borderColor": "black",
+        }
+      }
+    />
+  </Styled(View)>
+  <Styled(View)
+    key="row4"
+    tableStyle={
+      Object {
+        "borderColor": "black",
+      }
+    }
+  >
+    <Styled(View)
+      isLastCell={false}
+      isLastRow={false}
+      key="row4_cell1"
+      shouldDisplay={false}
+      tableStyle={
+        Object {
+          "borderColor": "black",
+        }
+      }
+    />
+    <Styled(View)
+      isLastCell={false}
+      isLastRow={false}
+      key="row4_cell2"
+      shouldDisplay={true}
+      tableStyle={
+        Object {
+          "borderColor": "black",
+        }
+      }
+    >
+      <Styled(Text)
+        hasTopMargin={false}
+      >
+        Row 4 Cell 2
+      </Styled(Text)>
+    </Styled(View)>
+    <ActionsCell
+      getRowActions={[Function]}
+      isLastRow={true}
+      row={
+        Object {
+          "cells": Array [
+            Object {
+              "key": "row4_cell1",
+              "shouldDisplay": false,
+              "value": "Row 4 Cell 1",
+            },
+            Object {
+              "key": "row4_cell2",
+              "value": "Row 4 Cell 2",
+            },
+          ],
+          "key": "row4",
+        }
+      }
+      tableStyle={
+        Object {
+          "borderColor": "black",
+        }
+      }
+    />
+  </Styled(View)>
+</Styled(View)>
+`;
+
+exports[`FlexTable With actions should render as expected 2`] = `
+<Styled(View)
+  isActionCell={true}
+  isLastCell={true}
+  isLastRow={false}
+  shouldDisplay={true}
+  tableStyle={
+    Object {
+      "borderColor": "black",
+    }
+  }
+>
+  <withTheme(IconButton)
+    color="#6200ee"
+    icon="account"
+    onPress={[Function]}
+  />
+</Styled(View)>
+`;
+
+exports[`FlexTable With actions should render as expected 3`] = `
+<Styled(View)
+  isActionCell={true}
+  isLastCell={true}
+  isLastRow={false}
+  shouldDisplay={true}
+  tableStyle={
+    Object {
+      "borderColor": "black",
+    }
+  }
+>
+  <withTheme(IconButton)
+    color="#6200ee"
+    icon="account-alert"
+    onPress={[Function]}
+  />
+</Styled(View)>
+`;
+
+exports[`FlexTable With actions should render as expected 4`] = `
+<Styled(View)
+  isActionCell={true}
+  isLastCell={true}
+  isLastRow={false}
+  shouldDisplay={true}
+  tableStyle={
+    Object {
+      "borderColor": "black",
+    }
+  }
+>
+  <withTheme(Menu)
+    anchor={
+      <withTheme(IconButton)
+        color="#6200ee"
+        icon="menu-down-outline"
+        onPress={[Function]}
+      />
+    }
+    onDismiss={[Function]}
+    visible={false}
+  >
+    <withTheme(Menu.Item)
+      key="alert"
+      onPress={[Function]}
+      title="Row 3 Action 1"
+    />
+    <withTheme(Menu.Item)
+      key="alert"
+      onPress={[Function]}
+      title="Row 3 Action 2"
+    />
+  </withTheme(Menu)>
+</Styled(View)>
+`;
+
+exports[`FlexTable With actions should render as expected 5`] = `
+<Styled(View)
+  isActionCell={true}
+  isLastCell={true}
+  isLastRow={true}
+  shouldDisplay={false}
+  tableStyle={
+    Object {
+      "borderColor": "black",
+    }
+  }
+>
+  <withTheme(IconButton) />
+</Styled(View)>
+`;
+
+exports[`FlexTable Without actions should render as expected 1`] = `
+<Styled(View)>
+  <Styled(View)
+    tableStyle={
+      Object {
+        "borderColor": "black",
+      }
+    }
+  >
+    <Styled(View)
+      isHeaderCell={true}
+      isLastCell={false}
+      key="col1"
+      shouldDisplay={true}
+      tableStyle={
+        Object {
+          "borderColor": "black",
+        }
+      }
+    >
+      <Styled(Text)>
+        Column 1
+      </Styled(Text)>
+    </Styled(View)>
+    <Styled(View)
+      isHeaderCell={true}
+      isLastCell={true}
+      key="col2"
+      shouldDisplay={true}
+      tableStyle={
+        Object {
+          "borderColor": "black",
+        }
+      }
+    >
+      <Styled(Text)>
+        Column 2
+      </Styled(Text)>
+    </Styled(View)>
+  </Styled(View)>
+  <Styled(View)
+    key="row1"
+    tableStyle={
+      Object {
+        "borderColor": "black",
+      }
+    }
+  >
+    <Styled(View)
+      isLastCell={false}
+      isLastRow={false}
+      key="row1_cell1"
+      shouldDisplay={true}
+      tableStyle={
+        Object {
+          "borderColor": "black",
+        }
+      }
+    >
+      <Styled(Text)
+        hasTopMargin={false}
+      >
+        Row 1 Cell 1
+      </Styled(Text)>
+    </Styled(View)>
+    <Styled(View)
+      isLastCell={true}
+      isLastRow={false}
+      key="row1_cell2"
+      shouldDisplay={true}
+      tableStyle={
+        Object {
+          "borderColor": "black",
+        }
+      }
+    >
+      <Styled(Text)
+        hasTopMargin={false}
+      >
+        Row 1 Cell 2
+      </Styled(Text)>
+    </Styled(View)>
+    <ActionsCell
+      isLastRow={false}
+      row={
+        Object {
+          "cells": Array [
+            Object {
+              "key": "row1_cell1",
+              "value": "Row 1 Cell 1",
+            },
+            Object {
+              "key": "row1_cell2",
+              "value": "Row 1 Cell 2",
+            },
+          ],
+          "key": "row1",
+        }
+      }
+      tableStyle={
+        Object {
+          "borderColor": "black",
+        }
+      }
+    />
+  </Styled(View)>
+  <Styled(View)
+    key="row2"
+    tableStyle={
+      Object {
+        "borderColor": "black",
+      }
+    }
+  >
+    <Styled(View)
+      isLastCell={false}
+      isLastRow={false}
+      key="row2_cell1"
+      shouldDisplay={true}
+      tableStyle={
+        Object {
+          "borderColor": "black",
+        }
+      }
+    >
+      <Styled(Text)
+        hasTopMargin={false}
+      >
+        Row 2 Cell 1
+      </Styled(Text)>
+    </Styled(View)>
+    <Styled(View)
+      isLastCell={true}
+      isLastRow={false}
+      key="row2_cell2"
+      shouldDisplay={true}
+      tableStyle={
+        Object {
+          "borderColor": "black",
+        }
+      }
+    >
+      <Styled(Text)
+        hasTopMargin={false}
+      >
+        Row 2 Cell 2
+      </Styled(Text)>
+    </Styled(View)>
+    <ActionsCell
+      isLastRow={false}
+      row={
+        Object {
+          "cells": Array [
+            Object {
+              "key": "row2_cell1",
+              "value": "Row 2 Cell 1",
+            },
+            Object {
+              "key": "row2_cell2",
+              "value": "Row 2 Cell 2",
+            },
+          ],
+          "key": "row2",
+        }
+      }
+      tableStyle={
+        Object {
+          "borderColor": "black",
+        }
+      }
+    />
+  </Styled(View)>
+  <Styled(View)
+    key="row3"
+    tableStyle={
+      Object {
+        "borderColor": "black",
+      }
+    }
+  >
+    <Styled(View)
+      isLastCell={false}
+      isLastRow={false}
+      key="row3_cell1"
+      shouldDisplay={true}
+      tableStyle={
+        Object {
+          "borderColor": "black",
+        }
+      }
+    >
+      <Styled(Text)
+        hasTopMargin={false}
+      >
+        Row 3 Cell 1
+      </Styled(Text)>
+    </Styled(View)>
+    <Styled(View)
+      isLastCell={true}
+      isLastRow={false}
+      key="row3_cell2"
+      shouldDisplay={true}
+      tableStyle={
+        Object {
+          "borderColor": "black",
+        }
+      }
+    >
+      <Styled(Text)
+        hasTopMargin={false}
+      >
+        Row 3 Cell 2
+      </Styled(Text)>
+    </Styled(View)>
+    <ActionsCell
+      isLastRow={true}
+      row={
+        Object {
+          "cells": Array [
+            Object {
+              "key": "row3_cell1",
+              "value": "Row 3 Cell 1",
+            },
+            Object {
+              "key": "row3_cell2",
+              "value": "Row 3 Cell 2",
+            },
+          ],
+          "key": "row3",
+        }
+      }
+      tableStyle={
+        Object {
+          "borderColor": "black",
+        }
+      }
+    />
+  </Styled(View)>
+</Styled(View)>
+`;
+
+exports[`FlexTable Without actions should render as expected 2`] = `""`;
+
+exports[`FlexTable Without actions should render as expected 3`] = `""`;
+
+exports[`FlexTable Without actions should render as expected 4`] = `""`;
