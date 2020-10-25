@@ -1,5 +1,5 @@
 {
-  "name": "@marko/expo-flex-table",
+  "name": "@codexporer.io/expo-flex-table",
   "version": "1.0.0",
   "main": "src/index.js",
   "peerDependencies": {
