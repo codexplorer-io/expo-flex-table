@@ -24,7 +24,10 @@ const TableCell = styled.View`
     padding-top: 15px;
     padding-bottom: 15px;
     border-right-width: ${({ isLastCell }) => isLastCell ? 0 : 1}px;
-    border-top-width: ${({ isHeaderCell, isActionCell }) => (!isHeaderCell || isActionCell) ? 0 : 1}px;
+    border-top-width: ${({
+        isHeaderCell,
+        isActionCell
+    }) => (!isHeaderCell || isActionCell) ? 0 : 1}px;
     border-bottom-width: ${({ shouldDisplay }) => shouldDisplay ? 1 : 0}px;
     border-color: ${({ tableStyle: { borderColor } }) => borderColor};
     justify-content: center;
