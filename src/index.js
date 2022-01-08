@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import map from 'lodash/map';
 import {
     Caption,
@@ -14,21 +14,43 @@ const TableRoot = styled.View`
 `;
 
 const TableRow = styled.View`
-    display: flex;
-    flex-direction: row;
+    ${({
+        isAddedBefore,
+        isAddedAfter,
+        tableStyle: { borderColor }
+    }) => (isAddedBefore || isAddedAfter) ? `
+        padding: 5px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        border-top-width: ${isAddedBefore ? 1 : 0}px;
+        border-bottom-width: ${isAddedAfter ? 1 : 0}px;
+        border-color: ${borderColor};
+    ` : `
+        display: flex;
+        flex-direction: row;
+    `}
 `;
 
 const TableCell = styled.View`
-    ${({ isActionCell }) => isActionCell ? '' : 'flex: 1'}; 
+    ${({ isActionCell }) => !isActionCell && 'flex: 1'}; 
     padding: 5px;
     padding-top: 15px;
     padding-bottom: 15px;
     border-right-width: ${({ isLastCell }) => isLastCell ? 0 : 1}px;
     border-top-width: ${({
         isHeaderCell,
-        isActionCell
-    }) => (!isHeaderCell || isActionCell) ? 0 : 1}px;
-    border-bottom-width: ${({ shouldDisplay }) => shouldDisplay ? 1 : 0}px;
+        shouldDisplay,
+        isFirstRow,
+        isActionCell,
+        hasHeader
+    }) => (
+        (hasHeader ? !isHeaderCell : (!isFirstRow || !shouldDisplay)) ||
+    isActionCell
+    ) ? 0 : 1}px;
+    border-bottom-width: ${({
+        shouldDisplay,
+        shouldDisplayNextRow
+    }) => (shouldDisplay || shouldDisplayNextRow) ? 1 : 0}px;
     border-color: ${({ tableStyle: { borderColor } }) => borderColor};
     justify-content: center;
 `;
@@ -51,7 +73,7 @@ const defaultTableStyle = {
 const ActionsCell = ({
     row,
     getRowActions,
-    isLastRow,
+    isFirstRow,
     tableStyle
 }) => {
     const theme = useTheme();
@@ -66,8 +88,8 @@ const ActionsCell = ({
     const renderCell = content => (
         <TableCell
             shouldDisplay={shouldDisplay}
+            isFirstRow={isFirstRow}
             isLastCell
-            isLastRow={isLastRow}
             isActionCell
             tableStyle={tableStyle}
         >
@@ -148,6 +170,8 @@ export const FlexTable = ({
         ...tableStyle
     };
 
+    const hasHeader = !!columns;
+
     return (
         <TableRoot>
             {!!columns && (
@@ -161,6 +185,7 @@ export const FlexTable = ({
                                 key={key}
                                 shouldDisplay
                                 isHeaderCell
+                                hasHeader={hasHeader}
                                 isLastCell={index === columns.length - 1 && !getRowActions}
                                 tableStyle={style}
                             >
@@ -174,6 +199,7 @@ export const FlexTable = ({
                             isLastCell
                             isActionCell
                             isHeaderCell
+                            hasHeader={hasHeader}
                             tableStyle={style}
                         >
                             <IconButton />
@@ -183,59 +209,93 @@ export const FlexTable = ({
             )}
             {map(
                 rows,
-                (row, index) => {
-                    const { key, cells } = row;
+                (row, rowIndex) => {
+                    const {
+                        key,
+                        cells,
+                        renderRowsBefore,
+                        renderRowsAfter
+                    } = row;
                     return (
-                        <TableRow
-                            key={key}
-                            tableStyle={style}
-                        >
+                        <Fragment key={key}>
                             {map(
-                                cells,
-                                ({
-                                    key,
-                                    shouldDisplay = true,
-                                    title,
-                                    value,
-                                    renderCell
-                                }, index) => {
-                                    const cellContent = !shouldDisplay ?
-                                        null :
-                                        renderCell ?
-                                            renderCell(row) : (
-                                                <>
-                                                    {!!title && (
-                                                        <TableCellTitle>{title}</TableCellTitle>
-                                                    )}
-                                                    <TableCellValue
-                                                        hasTopMargin={!!title}
-                                                    >
-                                                        {value}
-                                                    </TableCellValue>
-                                                </>
-                                            );
-                                    return (
-                                        <TableCell
-                                            key={key}
-                                            shouldDisplay={shouldDisplay}
-                                            isLastCell={
-                                                index === cells.length - 1 && !getRowActions
-                                            }
-                                            isLastRow={index === rows.length - 1}
-                                            tableStyle={style}
-                                        >
-                                            {cellContent}
-                                        </TableCell>
-                                    );
-                                }
+                                renderRowsBefore?.(),
+                                ({ renderRow }, index) => (
+                                    <TableRow
+                                        key={String(index)}
+                                        tableStyle={style}
+                                        isAddedBefore
+                                    >
+                                        {renderRow()}
+                                    </TableRow>
+                                )
                             )}
-                            <ActionsCell
-                                row={row}
-                                isLastRow={index === rows.length - 1}
-                                getRowActions={getRowActions}
-                                tableStyle={style}
-                            />
-                        </TableRow>
+                            <TableRow tableStyle={style}>
+                                {map(
+                                    cells,
+                                    ({
+                                        key,
+                                        shouldDisplay = true,
+                                        title,
+                                        value,
+                                        renderCell
+                                    }, cellIndex) => {
+                                        const cellContent = !shouldDisplay ?
+                                            null :
+                                            renderCell ?
+                                                renderCell(row) : (
+                                                    <>
+                                                        {!!title && (
+                                                            <TableCellTitle>{title}</TableCellTitle>
+                                                        )}
+                                                        <TableCellValue
+                                                            hasTopMargin={!!title}
+                                                        >
+                                                            {value}
+                                                        </TableCellValue>
+                                                    </>
+                                                );
+                                        const nextRowCell = rows[rowIndex + 1]?.cells?.[cellIndex];
+                                        const shouldDisplayNextRow = nextRowCell ?
+                                            nextRowCell.shouldDisplay ?? true :
+                                            false;
+                                        return (
+                                            <TableCell
+                                                key={key}
+                                                shouldDisplay={shouldDisplay}
+                                                shouldDisplayNextRow={shouldDisplayNextRow}
+                                                hasHeader={hasHeader}
+                                                isFirstRow={rowIndex === 0}
+                                                isLastCell={
+                                                    cellIndex === cells.length - 1 && !getRowActions
+                                                }
+                                                tableStyle={style}
+                                            >
+                                                {cellContent}
+                                            </TableCell>
+                                        );
+                                    }
+                                )}
+                                <ActionsCell
+                                    row={row}
+                                    isFirstRow={rowIndex === 0}
+                                    getRowActions={getRowActions}
+                                    tableStyle={style}
+                                />
+                            </TableRow>
+                            {map(
+                                renderRowsAfter?.(),
+                                ({ renderRow }, index) => (
+                                    <TableRow
+                                        key={String(index)}
+                                        tableStyle={style}
+                                        isAddedAfter
+                                    >
+                                        {renderRow()}
+                                    </TableRow>
+                                )
+                            )}
+                        </Fragment>
                     );
                 }
             )}
