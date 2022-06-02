@@ -397,12 +397,12 @@ exports[`FlexTable With actions should render as expected 4`] = `
     onDismiss={[Function]}
     visible={false}
   >
-    <Menu.Item
+    <withTheme(Menu.Item)
       key="alert"
       onPress={[Function]}
       title="Row 3 Action 1"
     />
-    <Menu.Item
+    <withTheme(Menu.Item)
       key="alert"
       onPress={[Function]}
       title="Row 3 Action 2"
