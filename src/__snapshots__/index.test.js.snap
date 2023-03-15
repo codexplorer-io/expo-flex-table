@@ -4,7 +4,7 @@ exports[`FlexTable With actions should render as expected 1`] = `
 <Styled(View)>
   <Styled(View)
     tableStyle={
-      Object {
+      {
         "borderColor": "black",
       }
     }
@@ -16,7 +16,7 @@ exports[`FlexTable With actions should render as expected 1`] = `
       key="col1"
       shouldDisplay={true}
       tableStyle={
-        Object {
+        {
           "borderColor": "black",
         }
       }
@@ -32,7 +32,7 @@ exports[`FlexTable With actions should render as expected 1`] = `
       key="col2"
       shouldDisplay={true}
       tableStyle={
-        Object {
+        {
           "borderColor": "black",
         }
       }
@@ -48,7 +48,7 @@ exports[`FlexTable With actions should render as expected 1`] = `
       isLastCell={true}
       shouldDisplay={true}
       tableStyle={
-        Object {
+        {
           "borderColor": "black",
         }
       }
@@ -58,7 +58,7 @@ exports[`FlexTable With actions should render as expected 1`] = `
   </Styled(View)>
   <Styled(View)
     tableStyle={
-      Object {
+      {
         "borderColor": "black",
       }
     }
@@ -71,7 +71,7 @@ exports[`FlexTable With actions should render as expected 1`] = `
       shouldDisplay={true}
       shouldDisplayNextRow={true}
       tableStyle={
-        Object {
+        {
           "borderColor": "black",
         }
       }
@@ -90,7 +90,7 @@ exports[`FlexTable With actions should render as expected 1`] = `
       shouldDisplay={true}
       shouldDisplayNextRow={true}
       tableStyle={
-        Object {
+        {
           "borderColor": "black",
         }
       }
@@ -105,13 +105,13 @@ exports[`FlexTable With actions should render as expected 1`] = `
       getRowActions={[Function]}
       isFirstRow={true}
       row={
-        Object {
-          "cells": Array [
-            Object {
+        {
+          "cells": [
+            {
               "key": "row1_cell1",
               "value": "Row 1 Cell 1",
             },
-            Object {
+            {
               "key": "row1_cell2",
               "value": "Row 1 Cell 2",
             },
@@ -120,7 +120,7 @@ exports[`FlexTable With actions should render as expected 1`] = `
         }
       }
       tableStyle={
-        Object {
+        {
           "borderColor": "black",
         }
       }
@@ -128,7 +128,7 @@ exports[`FlexTable With actions should render as expected 1`] = `
   </Styled(View)>
   <Styled(View)
     tableStyle={
-      Object {
+      {
         "borderColor": "black",
       }
     }
@@ -141,7 +141,7 @@ exports[`FlexTable With actions should render as expected 1`] = `
       shouldDisplay={true}
       shouldDisplayNextRow={true}
       tableStyle={
-        Object {
+        {
           "borderColor": "black",
         }
       }
@@ -160,7 +160,7 @@ exports[`FlexTable With actions should render as expected 1`] = `
       shouldDisplay={true}
       shouldDisplayNextRow={true}
       tableStyle={
-        Object {
+        {
           "borderColor": "black",
         }
       }
@@ -175,13 +175,13 @@ exports[`FlexTable With actions should render as expected 1`] = `
       getRowActions={[Function]}
       isFirstRow={false}
       row={
-        Object {
-          "cells": Array [
-            Object {
+        {
+          "cells": [
+            {
               "key": "row2_cell1",
               "value": "Row 2 Cell 1",
             },
-            Object {
+            {
               "key": "row2_cell2",
               "value": "Row 2 Cell 2",
             },
@@ -190,7 +190,7 @@ exports[`FlexTable With actions should render as expected 1`] = `
         }
       }
       tableStyle={
-        Object {
+        {
           "borderColor": "black",
         }
       }
@@ -198,7 +198,7 @@ exports[`FlexTable With actions should render as expected 1`] = `
   </Styled(View)>
   <Styled(View)
     tableStyle={
-      Object {
+      {
         "borderColor": "black",
       }
     }
@@ -211,7 +211,7 @@ exports[`FlexTable With actions should render as expected 1`] = `
       shouldDisplay={true}
       shouldDisplayNextRow={false}
       tableStyle={
-        Object {
+        {
           "borderColor": "black",
         }
       }
@@ -230,7 +230,7 @@ exports[`FlexTable With actions should render as expected 1`] = `
       shouldDisplay={true}
       shouldDisplayNextRow={true}
       tableStyle={
-        Object {
+        {
           "borderColor": "black",
         }
       }
@@ -245,13 +245,13 @@ exports[`FlexTable With actions should render as expected 1`] = `
       getRowActions={[Function]}
       isFirstRow={false}
       row={
-        Object {
-          "cells": Array [
-            Object {
+        {
+          "cells": [
+            {
               "key": "row3_cell1",
               "value": "Row 3 Cell 1",
             },
-            Object {
+            {
               "key": "row3_cell2",
               "value": "Row 3 Cell 2",
             },
@@ -260,7 +260,7 @@ exports[`FlexTable With actions should render as expected 1`] = `
         }
       }
       tableStyle={
-        Object {
+        {
           "borderColor": "black",
         }
       }
@@ -268,7 +268,7 @@ exports[`FlexTable With actions should render as expected 1`] = `
   </Styled(View)>
   <Styled(View)
     tableStyle={
-      Object {
+      {
         "borderColor": "black",
       }
     }
@@ -281,7 +281,7 @@ exports[`FlexTable With actions should render as expected 1`] = `
       shouldDisplay={false}
       shouldDisplayNextRow={false}
       tableStyle={
-        Object {
+        {
           "borderColor": "black",
         }
       }
@@ -294,7 +294,7 @@ exports[`FlexTable With actions should render as expected 1`] = `
       shouldDisplay={true}
       shouldDisplayNextRow={false}
       tableStyle={
-        Object {
+        {
           "borderColor": "black",
         }
       }
@@ -309,14 +309,14 @@ exports[`FlexTable With actions should render as expected 1`] = `
       getRowActions={[Function]}
       isFirstRow={false}
       row={
-        Object {
-          "cells": Array [
-            Object {
+        {
+          "cells": [
+            {
               "key": "row4_cell1",
               "shouldDisplay": false,
               "value": "Row 4 Cell 1",
             },
-            Object {
+            {
               "key": "row4_cell2",
               "value": "Row 4 Cell 2",
             },
@@ -325,7 +325,7 @@ exports[`FlexTable With actions should render as expected 1`] = `
         }
       }
       tableStyle={
-        Object {
+        {
           "borderColor": "black",
         }
       }
@@ -341,7 +341,7 @@ exports[`FlexTable With actions should render as expected 2`] = `
   isLastCell={true}
   shouldDisplay={true}
   tableStyle={
-    Object {
+    {
       "borderColor": "black",
     }
   }
@@ -361,7 +361,7 @@ exports[`FlexTable With actions should render as expected 3`] = `
   isLastCell={true}
   shouldDisplay={true}
   tableStyle={
-    Object {
+    {
       "borderColor": "black",
     }
   }
@@ -381,7 +381,7 @@ exports[`FlexTable With actions should render as expected 4`] = `
   isLastCell={true}
   shouldDisplay={true}
   tableStyle={
-    Object {
+    {
       "borderColor": "black",
     }
   }
@@ -418,7 +418,7 @@ exports[`FlexTable With actions should render as expected 5`] = `
   isLastCell={true}
   shouldDisplay={false}
   tableStyle={
-    Object {
+    {
       "borderColor": "black",
     }
   }
@@ -431,7 +431,7 @@ exports[`FlexTable Without actions should render as expected 1`] = `
 <Styled(View)>
   <Styled(View)
     tableStyle={
-      Object {
+      {
         "borderColor": "black",
       }
     }
@@ -443,7 +443,7 @@ exports[`FlexTable Without actions should render as expected 1`] = `
       key="col1"
       shouldDisplay={true}
       tableStyle={
-        Object {
+        {
           "borderColor": "black",
         }
       }
@@ -459,7 +459,7 @@ exports[`FlexTable Without actions should render as expected 1`] = `
       key="col2"
       shouldDisplay={true}
       tableStyle={
-        Object {
+        {
           "borderColor": "black",
         }
       }
@@ -471,7 +471,7 @@ exports[`FlexTable Without actions should render as expected 1`] = `
   </Styled(View)>
   <Styled(View)
     tableStyle={
-      Object {
+      {
         "borderColor": "black",
       }
     }
@@ -484,7 +484,7 @@ exports[`FlexTable Without actions should render as expected 1`] = `
       shouldDisplay={true}
       shouldDisplayNextRow={true}
       tableStyle={
-        Object {
+        {
           "borderColor": "black",
         }
       }
@@ -503,7 +503,7 @@ exports[`FlexTable Without actions should render as expected 1`] = `
       shouldDisplay={true}
       shouldDisplayNextRow={true}
       tableStyle={
-        Object {
+        {
           "borderColor": "black",
         }
       }
@@ -517,13 +517,13 @@ exports[`FlexTable Without actions should render as expected 1`] = `
     <ActionsCell
       isFirstRow={true}
       row={
-        Object {
-          "cells": Array [
-            Object {
+        {
+          "cells": [
+            {
               "key": "row1_cell1",
               "value": "Row 1 Cell 1",
             },
-            Object {
+            {
               "key": "row1_cell2",
               "value": "Row 1 Cell 2",
             },
@@ -532,7 +532,7 @@ exports[`FlexTable Without actions should render as expected 1`] = `
         }
       }
       tableStyle={
-        Object {
+        {
           "borderColor": "black",
         }
       }
@@ -540,7 +540,7 @@ exports[`FlexTable Without actions should render as expected 1`] = `
   </Styled(View)>
   <Styled(View)
     tableStyle={
-      Object {
+      {
         "borderColor": "black",
       }
     }
@@ -553,7 +553,7 @@ exports[`FlexTable Without actions should render as expected 1`] = `
       shouldDisplay={true}
       shouldDisplayNextRow={true}
       tableStyle={
-        Object {
+        {
           "borderColor": "black",
         }
       }
@@ -572,7 +572,7 @@ exports[`FlexTable Without actions should render as expected 1`] = `
       shouldDisplay={true}
       shouldDisplayNextRow={true}
       tableStyle={
-        Object {
+        {
           "borderColor": "black",
         }
       }
@@ -586,13 +586,13 @@ exports[`FlexTable Without actions should render as expected 1`] = `
     <ActionsCell
       isFirstRow={false}
       row={
-        Object {
-          "cells": Array [
-            Object {
+        {
+          "cells": [
+            {
               "key": "row2_cell1",
               "value": "Row 2 Cell 1",
             },
-            Object {
+            {
               "key": "row2_cell2",
               "value": "Row 2 Cell 2",
             },
@@ -601,7 +601,7 @@ exports[`FlexTable Without actions should render as expected 1`] = `
         }
       }
       tableStyle={
-        Object {
+        {
           "borderColor": "black",
         }
       }
@@ -609,7 +609,7 @@ exports[`FlexTable Without actions should render as expected 1`] = `
   </Styled(View)>
   <Styled(View)
     tableStyle={
-      Object {
+      {
         "borderColor": "black",
       }
     }
@@ -622,7 +622,7 @@ exports[`FlexTable Without actions should render as expected 1`] = `
       shouldDisplay={true}
       shouldDisplayNextRow={false}
       tableStyle={
-        Object {
+        {
           "borderColor": "black",
         }
       }
@@ -641,7 +641,7 @@ exports[`FlexTable Without actions should render as expected 1`] = `
       shouldDisplay={true}
       shouldDisplayNextRow={false}
       tableStyle={
-        Object {
+        {
           "borderColor": "black",
         }
       }
@@ -655,13 +655,13 @@ exports[`FlexTable Without actions should render as expected 1`] = `
     <ActionsCell
       isFirstRow={false}
       row={
-        Object {
-          "cells": Array [
-            Object {
+        {
+          "cells": [
+            {
               "key": "row3_cell1",
               "value": "Row 3 Cell 1",
             },
-            Object {
+            {
               "key": "row3_cell2",
               "value": "Row 3 Cell 2",
             },
@@ -670,7 +670,7 @@ exports[`FlexTable Without actions should render as expected 1`] = `
         }
       }
       tableStyle={
-        Object {
+        {
           "borderColor": "black",
         }
       }
