@@ -5,7 +5,8 @@ exports[`FlexTable With actions should render as expected 1`] = `
   <Styled(View)
     tableStyle={
       {
-        "borderColor": "black",
+        "backgroundColor": "#f6f6f6",
+        "borderColor": "#000000",
       }
     }
   >
@@ -17,7 +18,8 @@ exports[`FlexTable With actions should render as expected 1`] = `
       shouldDisplay={true}
       tableStyle={
         {
-          "borderColor": "black",
+          "backgroundColor": "#f6f6f6",
+          "borderColor": "#000000",
         }
       }
     >
@@ -33,7 +35,8 @@ exports[`FlexTable With actions should render as expected 1`] = `
       shouldDisplay={true}
       tableStyle={
         {
-          "borderColor": "black",
+          "backgroundColor": "#f6f6f6",
+          "borderColor": "#000000",
         }
       }
     >
@@ -49,7 +52,8 @@ exports[`FlexTable With actions should render as expected 1`] = `
       shouldDisplay={true}
       tableStyle={
         {
-          "borderColor": "black",
+          "backgroundColor": "#f6f6f6",
+          "borderColor": "#000000",
         }
       }
     >
@@ -59,7 +63,8 @@ exports[`FlexTable With actions should render as expected 1`] = `
   <Styled(View)
     tableStyle={
       {
-        "borderColor": "black",
+        "backgroundColor": "#f6f6f6",
+        "borderColor": "#000000",
       }
     }
   >
@@ -72,7 +77,8 @@ exports[`FlexTable With actions should render as expected 1`] = `
       shouldDisplayNextRow={true}
       tableStyle={
         {
-          "borderColor": "black",
+          "backgroundColor": "#f6f6f6",
+          "borderColor": "#000000",
         }
       }
     >
@@ -91,7 +97,8 @@ exports[`FlexTable With actions should render as expected 1`] = `
       shouldDisplayNextRow={true}
       tableStyle={
         {
-          "borderColor": "black",
+          "backgroundColor": "#f6f6f6",
+          "borderColor": "#000000",
         }
       }
     >
@@ -121,7 +128,8 @@ exports[`FlexTable With actions should render as expected 1`] = `
       }
       tableStyle={
         {
-          "borderColor": "black",
+          "backgroundColor": "#f6f6f6",
+          "borderColor": "#000000",
         }
       }
     />
@@ -129,7 +137,8 @@ exports[`FlexTable With actions should render as expected 1`] = `
   <Styled(View)
     tableStyle={
       {
-        "borderColor": "black",
+        "backgroundColor": "#f6f6f6",
+        "borderColor": "#000000",
       }
     }
   >
@@ -142,7 +151,8 @@ exports[`FlexTable With actions should render as expected 1`] = `
       shouldDisplayNextRow={true}
       tableStyle={
         {
-          "borderColor": "black",
+          "backgroundColor": "#f6f6f6",
+          "borderColor": "#000000",
         }
       }
     >
@@ -161,7 +171,8 @@ exports[`FlexTable With actions should render as expected 1`] = `
       shouldDisplayNextRow={true}
       tableStyle={
         {
-          "borderColor": "black",
+          "backgroundColor": "#f6f6f6",
+          "borderColor": "#000000",
         }
       }
     >
@@ -191,7 +202,8 @@ exports[`FlexTable With actions should render as expected 1`] = `
       }
       tableStyle={
         {
-          "borderColor": "black",
+          "backgroundColor": "#f6f6f6",
+          "borderColor": "#000000",
         }
       }
     />
@@ -199,7 +211,8 @@ exports[`FlexTable With actions should render as expected 1`] = `
   <Styled(View)
     tableStyle={
       {
-        "borderColor": "black",
+        "backgroundColor": "#f6f6f6",
+        "borderColor": "#000000",
       }
     }
   >
@@ -212,7 +225,8 @@ exports[`FlexTable With actions should render as expected 1`] = `
       shouldDisplayNextRow={false}
       tableStyle={
         {
-          "borderColor": "black",
+          "backgroundColor": "#f6f6f6",
+          "borderColor": "#000000",
         }
       }
     >
@@ -231,7 +245,8 @@ exports[`FlexTable With actions should render as expected 1`] = `
       shouldDisplayNextRow={true}
       tableStyle={
         {
-          "borderColor": "black",
+          "backgroundColor": "#f6f6f6",
+          "borderColor": "#000000",
         }
       }
     >
@@ -261,7 +276,8 @@ exports[`FlexTable With actions should render as expected 1`] = `
       }
       tableStyle={
         {
-          "borderColor": "black",
+          "backgroundColor": "#f6f6f6",
+          "borderColor": "#000000",
         }
       }
     />
@@ -269,7 +285,8 @@ exports[`FlexTable With actions should render as expected 1`] = `
   <Styled(View)
     tableStyle={
       {
-        "borderColor": "black",
+        "backgroundColor": "#f6f6f6",
+        "borderColor": "#000000",
       }
     }
   >
@@ -282,7 +299,8 @@ exports[`FlexTable With actions should render as expected 1`] = `
       shouldDisplayNextRow={false}
       tableStyle={
         {
-          "borderColor": "black",
+          "backgroundColor": "#f6f6f6",
+          "borderColor": "#000000",
         }
       }
     />
@@ -295,7 +313,8 @@ exports[`FlexTable With actions should render as expected 1`] = `
       shouldDisplayNextRow={false}
       tableStyle={
         {
-          "borderColor": "black",
+          "backgroundColor": "#f6f6f6",
+          "borderColor": "#000000",
         }
       }
     >
@@ -326,7 +345,8 @@ exports[`FlexTable With actions should render as expected 1`] = `
       }
       tableStyle={
         {
-          "borderColor": "black",
+          "backgroundColor": "#f6f6f6",
+          "borderColor": "#000000",
         }
       }
     />
@@ -342,7 +362,8 @@ exports[`FlexTable With actions should render as expected 2`] = `
   shouldDisplay={true}
   tableStyle={
     {
-      "borderColor": "black",
+      "backgroundColor": "#f6f6f6",
+      "borderColor": "#000000",
     }
   }
 >
@@ -362,7 +383,8 @@ exports[`FlexTable With actions should render as expected 3`] = `
   shouldDisplay={true}
   tableStyle={
     {
-      "borderColor": "black",
+      "backgroundColor": "#f6f6f6",
+      "borderColor": "#000000",
     }
   }
 >
@@ -382,7 +404,8 @@ exports[`FlexTable With actions should render as expected 4`] = `
   shouldDisplay={true}
   tableStyle={
     {
-      "borderColor": "black",
+      "backgroundColor": "#f6f6f6",
+      "borderColor": "#000000",
     }
   }
 >
@@ -419,7 +442,8 @@ exports[`FlexTable With actions should render as expected 5`] = `
   shouldDisplay={false}
   tableStyle={
     {
-      "borderColor": "black",
+      "backgroundColor": "#f6f6f6",
+      "borderColor": "#000000",
     }
   }
 >
@@ -432,7 +456,8 @@ exports[`FlexTable Without actions should render as expected 1`] = `
   <Styled(View)
     tableStyle={
       {
-        "borderColor": "black",
+        "backgroundColor": "#f6f6f6",
+        "borderColor": "#000000",
       }
     }
   >
@@ -444,7 +469,8 @@ exports[`FlexTable Without actions should render as expected 1`] = `
       shouldDisplay={true}
       tableStyle={
         {
-          "borderColor": "black",
+          "backgroundColor": "#f6f6f6",
+          "borderColor": "#000000",
         }
       }
     >
@@ -460,7 +486,8 @@ exports[`FlexTable Without actions should render as expected 1`] = `
       shouldDisplay={true}
       tableStyle={
         {
-          "borderColor": "black",
+          "backgroundColor": "#f6f6f6",
+          "borderColor": "#000000",
         }
       }
     >
@@ -472,7 +499,8 @@ exports[`FlexTable Without actions should render as expected 1`] = `
   <Styled(View)
     tableStyle={
       {
-        "borderColor": "black",
+        "backgroundColor": "#f6f6f6",
+        "borderColor": "#000000",
       }
     }
   >
@@ -485,7 +513,8 @@ exports[`FlexTable Without actions should render as expected 1`] = `
       shouldDisplayNextRow={true}
       tableStyle={
         {
-          "borderColor": "black",
+          "backgroundColor": "#f6f6f6",
+          "borderColor": "#000000",
         }
       }
     >
@@ -504,7 +533,8 @@ exports[`FlexTable Without actions should render as expected 1`] = `
       shouldDisplayNextRow={true}
       tableStyle={
         {
-          "borderColor": "black",
+          "backgroundColor": "#f6f6f6",
+          "borderColor": "#000000",
         }
       }
     >
@@ -533,7 +563,8 @@ exports[`FlexTable Without actions should render as expected 1`] = `
       }
       tableStyle={
         {
-          "borderColor": "black",
+          "backgroundColor": "#f6f6f6",
+          "borderColor": "#000000",
         }
       }
     />
@@ -541,7 +572,8 @@ exports[`FlexTable Without actions should render as expected 1`] = `
   <Styled(View)
     tableStyle={
       {
-        "borderColor": "black",
+        "backgroundColor": "#f6f6f6",
+        "borderColor": "#000000",
       }
     }
   >
@@ -554,7 +586,8 @@ exports[`FlexTable Without actions should render as expected 1`] = `
       shouldDisplayNextRow={true}
       tableStyle={
         {
-          "borderColor": "black",
+          "backgroundColor": "#f6f6f6",
+          "borderColor": "#000000",
         }
       }
     >
@@ -573,7 +606,8 @@ exports[`FlexTable Without actions should render as expected 1`] = `
       shouldDisplayNextRow={true}
       tableStyle={
         {
-          "borderColor": "black",
+          "backgroundColor": "#f6f6f6",
+          "borderColor": "#000000",
         }
       }
     >
@@ -602,7 +636,8 @@ exports[`FlexTable Without actions should render as expected 1`] = `
       }
       tableStyle={
         {
-          "borderColor": "black",
+          "backgroundColor": "#f6f6f6",
+          "borderColor": "#000000",
         }
       }
     />
@@ -610,7 +645,8 @@ exports[`FlexTable Without actions should render as expected 1`] = `
   <Styled(View)
     tableStyle={
       {
-        "borderColor": "black",
+        "backgroundColor": "#f6f6f6",
+        "borderColor": "#000000",
       }
     }
   >
@@ -623,7 +659,8 @@ exports[`FlexTable Without actions should render as expected 1`] = `
       shouldDisplayNextRow={false}
       tableStyle={
         {
-          "borderColor": "black",
+          "backgroundColor": "#f6f6f6",
+          "borderColor": "#000000",
         }
       }
     >
@@ -642,7 +679,8 @@ exports[`FlexTable Without actions should render as expected 1`] = `
       shouldDisplayNextRow={false}
       tableStyle={
         {
-          "borderColor": "black",
+          "backgroundColor": "#f6f6f6",
+          "borderColor": "#000000",
         }
       }
     >
@@ -671,7 +709,8 @@ exports[`FlexTable Without actions should render as expected 1`] = `
       }
       tableStyle={
         {
-          "borderColor": "black",
+          "backgroundColor": "#f6f6f6",
+          "borderColor": "#000000",
         }
       }
     />

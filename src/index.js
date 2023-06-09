@@ -8,12 +8,15 @@ import {
 } from 'react-native-paper';
 import styled from 'styled-components/native';
 
+const borderWidth = 1;
+
 const TableRoot = styled.View`
     display: flex;
     flex-direction: column;
 `;
 
 const TableRow = styled.View`
+    position: relative;
     ${({
         isAddedBefore,
         isAddedAfter,
@@ -31,12 +34,22 @@ const TableRow = styled.View`
     `}
 `;
 
+const TableRowDisabledOverlay = styled.View`
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: ${borderWidth}px;
+    opacity: 0.8;
+    background-color: ${({ tableStyle: { backgroundColor } }) => backgroundColor};
+`;
+
 const TableCell = styled.View`
     ${({ isActionCell }) => !isActionCell && 'flex: 1'}; 
     padding: 5px;
     padding-top: 15px;
     padding-bottom: 15px;
-    border-right-width: ${({ isLastCell }) => isLastCell ? 0 : 1}px;
+    border-right-width: ${({ isLastCell }) => isLastCell ? 0 : borderWidth}px;
     border-top-width: ${({
         isHeaderCell,
         shouldDisplay,
@@ -44,13 +57,12 @@ const TableCell = styled.View`
         isActionCell,
         hasHeader
     }) => (
-        (hasHeader ? !isHeaderCell : (!isFirstRow || !shouldDisplay)) ||
-    isActionCell
-    ) ? 0 : 1}px;
+        (hasHeader ? !isHeaderCell : (!isFirstRow || !shouldDisplay)) || isActionCell
+    ) ? 0 : borderWidth}px;
     border-bottom-width: ${({
         shouldDisplay,
         shouldDisplayNextRow
-    }) => (shouldDisplay || shouldDisplayNextRow) ? 1 : 0}px;
+    }) => (shouldDisplay || shouldDisplayNextRow) ? borderWidth : 0}px;
     border-color: ${({ tableStyle: { borderColor } }) => borderColor};
     justify-content: center;
 `;
@@ -65,10 +77,6 @@ const TableCellValue = styled.Text`
     text-align: center;
     font-weight: bold;
 `;
-
-const defaultTableStyle = {
-    borderColor: 'black'
-};
 
 const ActionsCell = ({
     row,
@@ -165,8 +173,10 @@ export const FlexTable = ({
     getRowActions,
     tableStyle
 }) => {
+    const theme = useTheme();
     const style = {
-        ...defaultTableStyle,
+        backgroundColor: theme.colors.background,
+        borderColor: theme.colors.text,
         ...tableStyle
     };
 
@@ -213,6 +223,8 @@ export const FlexTable = ({
                     const {
                         key,
                         cells,
+                        isDisabled,
+                        renderOnDisabledOverlay,
                         renderRowsBefore,
                         renderRowsAfter
                     } = row;
@@ -230,7 +242,9 @@ export const FlexTable = ({
                                     </TableRow>
                                 )
                             )}
-                            <TableRow tableStyle={style}>
+                            <TableRow
+                                tableStyle={style}
+                            >
                                 {map(
                                     cells,
                                     ({
@@ -282,6 +296,13 @@ export const FlexTable = ({
                                     getRowActions={getRowActions}
                                     tableStyle={style}
                                 />
+                                {isDisabled && (
+                                    <TableRowDisabledOverlay
+                                        tableStyle={style}
+                                    >
+                                        {renderOnDisabledOverlay?.() ?? null}
+                                    </TableRowDisabledOverlay>
+                                )}
                             </TableRow>
                             {map(
                                 renderRowsAfter?.(),
